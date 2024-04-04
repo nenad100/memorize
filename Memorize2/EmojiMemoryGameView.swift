@@ -10,7 +10,7 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
-    let emojis = ["👻","🎃","🕷️","👿","💀","🕸️","🧙‍♀️","🙀","👹","😱","☠️","🍭"]
+    private let aspectRation: CGFloat = 2/3
     
     var body: some View {
         VStack{
@@ -25,19 +25,48 @@ struct EmojiMemoryGameView: View {
         .padding()
     }
     
-    var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
-            ForEach(viewModel.cards) { card in
-                CardView(card)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .padding(4)
-                    .onTapGesture {
-                        viewModel.choose(card)
-                    }
+    private var cards: some View {
+        GeometryReader { geometry in
+            let gridItemSize = gridItemWithThatFits(
+                count: viewModel.cards.count,
+                size: geometry.size,
+                atAspectRatio: aspectRation)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: gridItemSize), spacing: 0)], spacing: 0) {
+                ForEach(viewModel.cards) { card in
+                    CardView(card)
+                        .aspectRatio(aspectRation, contentMode: .fit)
+                        .padding(4)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                        }
+                }
             }
+            .foregroundColor(.orange)
         }
-        .foregroundColor(.orange)
     }
+}
+
+private func gridItemWithThatFits(
+    count: Int,
+    size: CGSize,
+    atAspectRatio aspectRatio: CGFloat
+) -> CGFloat {
+    let count = CGFloat(count)
+    let geometryAspectRatio = (size.height / size.width) * 0.5
+    var columnCount = 1.0
+    repeat {
+        let width = size.width / columnCount
+        let height = (width / aspectRatio) * geometryAspectRatio
+        
+        let rowCount = (count / columnCount).rounded(.up)
+
+        if rowCount * height < size.height {
+            return (size.width / columnCount).rounded(.down)
+        }
+        columnCount += 1
+    } while columnCount < count
+    
+    return min(size.width / count, size.height * aspectRatio / geometryAspectRatio).rounded(.down)
 }
 
 struct CardView: View {
