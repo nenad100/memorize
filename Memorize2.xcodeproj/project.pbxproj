@@ -16,6 +16,7 @@
 		72BE21272BBED21C00A4D9AC /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE21262BBED21C00A4D9AC /* AspectVGrid.swift */; };
 		72BE21292BBEE52200A4D9AC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE21282BBEE52200A4D9AC /* CardView.swift */; };
 		72BE212B2BBF20F700A4D9AC /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE212A2BBF20F700A4D9AC /* Pie.swift */; };
+		72BE212D2BBFE97400A4D9AC /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BE212C2BBFE97400A4D9AC /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		72BE21262BBED21C00A4D9AC /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		72BE21282BBEE52200A4D9AC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		72BE212A2BBF20F700A4D9AC /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		72BE212C2BBFE97400A4D9AC /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				7225BB5C2BBCADAB00803981 /* EmojiMemoryGame.swift */,
 				7225BB502BBBFCE000803981 /* Assets.xcassets */,
 				7225BB522BBBFCE000803981 /* Preview Content */,
+				72BE212C2BBFE97400A4D9AC /* Cardify.swift */,
 			);
 			path = Memorize2;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				7225BB4F2BBBFCD100803981 /* EmojiMemoryGameView.swift in Sources */,
 				7225BB4D2BBBFCD100803981 /* Memorize2App.swift in Sources */,
+				72BE212D2BBFE97400A4D9AC /* Cardify.swift in Sources */,
 				7225BB5B2BBCABDB00803981 /* MemoryGame.swift in Sources */,
 				72BE21272BBED21C00A4D9AC /* AspectVGrid.swift in Sources */,
 				72BE212B2BBF20F700A4D9AC /* Pie.swift in Sources */,
