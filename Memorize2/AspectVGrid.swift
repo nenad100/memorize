@@ -12,6 +12,8 @@ struct AspectVGrid<Item: Identifiable, ItemView: View>: View {
     var aspectRatio: CGFloat = 1
     @ViewBuilder var content: (Item) -> ItemView
     
+    private let geometryAspectRadioFactor = 0.55
+    
     init(_ items: [Item], aspectRatio: CGFloat, @ViewBuilder content: @escaping (Item) -> ItemView) {
         self.items = items
         self.aspectRatio = aspectRatio
@@ -40,7 +42,7 @@ struct AspectVGrid<Item: Identifiable, ItemView: View>: View {
         atAspectRatio aspectRatio: CGFloat
     ) -> CGFloat {
         let count = CGFloat(count)
-        let geometryAspectRatio = (size.height / size.width) * 0.5
+        let geometryAspectRatio = (size.height / size.width) * geometryAspectRadioFactor
         var columnCount = 1.0
         repeat {
             let width = size.width / columnCount
